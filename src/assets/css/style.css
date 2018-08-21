@@ -1,0 +1,135 @@
+@font-face{font-family:"Montserrat"; src:url('../fonts/Montserrat-Regular.otf');}
+@font-face{font-family:"Montserrat_l"; src:url('../fonts/Montserrat-Light.otf');}
+@font-face{font-family:"Montserrat_m"; src:url('../fonts/Montserrat-Medium.otf');}
+/*--------------------reset css--------------------*/
+html, body, div, span, applet, object, iframe, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+body{font-family:"Montserrat"; color:#222222;  background:#201634 url(../images/dis_token_wrapper_bg.png) no-repeat;}
+/* ### wrapper ### */
+#wrapper { display: block; width: 100%; min-height: 100%;}
+/*header{background:#f75b57;}*/
+
+
+.navbar-brand{height:auto; padding:0; MARGIN:5px 0px 0px 0px;}
+.navbar{margin-bottom:0; font-family:"Montserrat_m";}
+.navbar-nav>li>a{color:#fff; padding:55px 20px;}
+.navbar-nav>li>a:hover{ color:#ff5b59; background:none;}
+.navbar-toggle{ background:#f75b57; margin: 25px 10px 0px 0px;}
+.navbar-toggle .icon-bar { background: #fff!important;}
+
+.about h2{text-transform:uppercase; font-family:"Montserrat_m"; margin-bottom:10px;} 
+.about h2>span{color:#f75b57;}
+h2{text-transform:uppercase; font-family:"Montserrat_m"; margin-bottom:30px;} 
+h2>span{color:#f75b57;}
+.about p{line-height: 25px; letter-spacing: 1px; font-size: 15px; text-align: justify;}
+
+
+/* ### home section ### */
+.circle{text-transform:uppercase;margin:30px 0px 0px 0px; color: #fff;}
+.circle img{background:#f75b57; text-align:center; padding:22px 0; border-radius:10%; width:50%; margin:0 auto 10px;}
+.c1 img{background:#57b1f7;}
+.c2 img{background:#ff0000;}
+.c3 img{background:#f99d30;}
+.c4 img{background:#4d836a;}
+.c5 img{background:#00a6ad;}
+.c6 img{background:#c0086c;}
+.c7 img{background:#95800a;}
+.c8 img{background:#fcfae5;}
+.c9 img{background:#3b3b1e;}
+.c10 img{background:#b1689f;}
+.c11 img{background:#4a8bac;}
+
+
+footer{ width:100%; float:left; margin:30px 0px 0px 0px; }
+footer p{ text-align:center; color:#fff; font-family:"Montserrat_l"; letter-spacing:1px; font-size:12px; padding:20px 0px }
+footer ul{display:inline-block; margin:20px 0; float: left;}
+footer ul li{float:left;  padding:0 0px; border-right:1px solid #888;}
+footer ul li:last-child{border-right:none;}
+
+
+
+
+
+ /* ### capacity section ### */
+.cap_img{ text-align:center;}
+.cap_img img{ width:100%; margin:45px 0;}
+
+.cap{text-align:center;     padding: 20px 0px; border-radius:6px; box-shadow: 2px 5px 18px rgba(255, 255, 255, 0.5) inset;  font-size: 14px; min-height: 110px; background:#f75b57; margin-top: 120px;  }
+.cap h3{ font-size:17px; }
+.circle01{background:#ffc65b; }
+.circle02{background:#c15afd;}
+@media only screen and (max-width: 760px){
+.cap{margin-top:10px;}
+.navbar-nav>li>a{ padding:20px 20px;}
+.navbar-toggle{ margin: 50px 10px 0px 0px;}
+}
+
+.nav-tabs{border-bottom: none; margin-top:20px; background:#fcc12d;  border-radius:6px;}
+.nav-tabs>li{margin-bottom:-2px;}
+.nav-tabs>li>a{color:#000; font-size: 16px; padding: 12px 25px; text-transform:uppercase; }
+.nav-tabs>li:hover>a, .nav-tabs>li>a:focus{color:#000 !important; background: none !important;  border-color:transparent;}
+.nav-tabs>li.active>a{color:#fff !important; background:none !important; border:none !important; transition:border 1s; }
+.tab-content{  border-top:none; padding: 17px 0px 0px 0px; }
+.form-actions{ margin-bottom: 10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

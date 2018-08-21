@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>PortalApp</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="manifest.json">
+
+  <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script>  
+      // !important: You want to give this variable(var googleLoaded = false;). This is used to run multiple chart in your jade.
+      var googleLoaded = false;
+      // !important: Define which chart packages to preload.Because this package uses ChartWrappers you can use any chart type that Google supports, but if it // isn't loaded it will load it on demand. 
+      var googleChartsPackagesToLoad = ['geochart'];
+  </script>
+
+  
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/fontawesome-all.css" media="all">
+  
+  <script src="assets/js/jquery-1.12.4.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!-- ----------  3D Chart JS And  CSS ---------------- -->
+ <script type="text/javascript" src="assets/chart3d/js/d3.v3.min.js"></script>
+ <script type="text/javascript" src="assets/chart3d/js/utils.js"></script>
+ <link rel="stylesheet" type="text/css" href="assets/chart3d/css/Chart3D.css">
+ 
+ <script type="text/javascript" src="assets/chart3d/js/dount3d.js"></script>
+ <script type="text/javascript" src="assets/chart3d/js/d3.legend.js"></script>
+ <script type="text/javascript" src="assets/chart3d/js/legend.js"></script>
+ 
+ <!-- ---------------  END END END ------------------ -->
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

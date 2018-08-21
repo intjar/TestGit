@@ -1,0 +1,304 @@
+<body>
+  <!--start wrapper-->
+  <div id="wrapper">
+    <header>
+      <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">
+                <img src="../../assets/images/logo.png" />
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+              <ul class="nav navbar-nav navbar-right">
+                <li>
+                  <a href="#">HOME</a>
+                </li>
+                <li>
+                  <a href="#">ABOUT US</a>
+                </li>
+                <li>
+                  <a href="#">DISCLAIMER</a>
+                </li>
+                <li>
+                  <a href="#">CONTACT US</a>
+                </li>
+                <li>
+                  <a href="#">GLOSSARY </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+    </header>
+
+
+    <div class="container ">
+
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#home">All indian Generation</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#menu1">Sector Wise</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#menu2">Category Wise</a>
+        </li>
+
+      </ul>
+      <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+
+
+          <div class="row ">
+            <div class="col-md-2 col-md-offset-8 mb-10">
+              <div class="form-actions pb-0">
+                <button type="submit" class="btn round btn-success btn-block btn-glow">Report in PDF </button>
+              </div>
+            </div>
+
+            <div class="col-md-2 ">
+              <div class="form-actions pb-0">
+                <button type="submit" class="btn round btn-warning btn-block btn-glow">Report in XLS </button>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row ">
+
+            <div class="col-sm-6 text-center ">
+              <div class="cap_img">
+                <img src="../../assets/images/PieChart.png" alt="" height="300" width="100">
+              </div>
+
+
+              <div class="col-md-4 col-md-offset-2">
+                <div class="form-actions pb-0">
+                  <button type="submit" class="btn round btn-info btn-block btn-glow">View Large </button>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-actions pb-0">
+                  <button type="submit" class="btn round btn-danger btn-block btn-glow">View More Details </button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-md-2">
+              <div class="cap">
+                <h3 *ngIf="allGeneration">{{allGeneration?.programGeneration.toFixed(2)}}</h3>  <h3 *ngIf="!allGeneration">0.00</h3>
+                <p> Program </p>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="cap circle01">
+                <h3 *ngIf="allGeneration">{{allGeneration?.actualGeneration.toFixed(2)}}</h3>  <h3 *ngIf="!allGeneration">0.00</h3>
+                <p>Actual </p>
+              </div>
+            </div>
+
+            <div class="col-md-2 ">
+              <div class="cap circle02">
+                <h3 *ngIf="allGeneration">{{allGeneration?.deviationGeneration.toFixed(2)}}</h3>  <h3 *ngIf="!allGeneration">0.00</h3>
+                <p>Deviation</p>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+
+        <div id="menu1" class="tab-pane fade">
+
+
+          <div class="row ">
+            <div class="col-md-3  ">
+              <div class="form-group">
+                <select (change)="funcSectorGeneration($event.target.value)" class="form-control" id="sel1">
+                  <option value="0">Select Sector</option>
+                  <option value="100001">Central Sector</option>
+                  <option value="100002">State Sector</option>
+                  <option value="100003">PVT</option>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-5">
+              <div class="form-actions pb-0">
+                <button type="submit" class="btn round btn-success btn-block btn-glow">Report in PDF </button>
+              </div>
+            </div>
+
+            <div class="col-md-2 ">
+              <div class="form-actions pb-0">
+                <button type="submit" class="btn round btn-warning btn-block btn-glow">Report in XLS </button>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row ">
+            <div class="col-md-6 text-center ">
+              <div class="cap_img">
+                <img src="../../assets/images/PieChart.png" alt="" height="300" width="100">
+              </div>
+
+              <div class="col-md-4 col-md-offset-2">
+                <div class="form-actions pb-0">
+                  <button type="submit" class="btn round btn-info btn-block btn-glow">View Large </button>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-actions pb-0">
+                  <button type="submit" class="btn round btn-danger btn-block btn-glow">View More Details </button>
+                </div>
+              </div>
+
+
+
+            </div>
+
+
+            <div class="col-md-2">
+              <div class="cap">
+                <h3 *ngIf="sectorGeneration">{{sectorGeneration?.programGeneration.toFixed(2)}}</h3> <h3 *ngIf="!sectorGeneration">0.00</h3>
+                <p> Program </p>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="cap circle01">
+                <h3 *ngIf="sectorGeneration">{{sectorGeneration?.actualGeneration.toFixed(2)}}</h3> <h3 *ngIf="!sectorGeneration">0.00</h3>
+                <p>Actual </p>
+              </div>
+            </div>
+
+            <div class="col-md-2 ">
+              <div class="cap circle02">
+                <h3 *ngIf="sectorGeneration">{{sectorGeneration?.deviationGeneration.toFixed(2)}}</h3> <h3 *ngIf="!sectorGeneration">0.00</h3>
+                <p>Deviation</p>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div id="menu2" class="tab-pane fade">
+          <div class="row ">
+            <div class="col-md-3  ">
+              <div class="form-group">
+                <select (change)="funcCategoryGeneration($event.target.value)" class="form-control" id="sel1">
+                  <option value="0">Select Category</option>
+                  <option value="100001">Thermal </option>
+                  <option value="100002">Hydro</option>
+                  <option value="100003">Nuclear</option>
+                  <option value="100004">RES</option>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="col-md-2 col-md-offset-5">
+              <div class="form-actions pb-0">
+                <button type="submit" class="btn round btn-success btn-block btn-glow">Report in PDF </button>
+              </div>
+            </div>
+
+            <div class="col-md-2 ">
+              <div class="form-actions pb-0">
+                <button type="submit" class="btn round btn-warning btn-block btn-glow">Report in XLS </button>
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="row ">
+            <div class="col-md-6 text-center ">
+              <div class="cap_img">
+
+                <img src="../../assets/images/PieChart.png" alt="" height="300" width="100">
+              </div>
+
+              <div class="col-md-4 col-md-offset-2">
+                <div class="form-actions pb-0">
+                  <button type="submit" class="btn round btn-info btn-block btn-glow">View Large </button>
+                </div>
+              </div>
+              <div class="col-md-4 ">
+                <div class="form-actions pb-0">
+                  <button type="submit" class="btn round btn-danger btn-block btn-glow">View More Details </button>
+                </div>
+              </div>
+
+
+
+            </div>
+
+            
+
+            <div class="col-md-2">
+              <div class="cap">
+                  <h3 *ngIf="categoryGeneration">{{categoryGeneration?.programGeneration.toFixed(2)}}</h3> <h3 *ngIf="!categoryGeneration">0.00</h3>
+                <p> Program </p>
+              </div>
+            </div>
+
+            <div class="col-md-2">
+              <div class="cap circle01">
+                  <h3 *ngIf="categoryGeneration">{{categoryGeneration?.programGeneration.toFixed(2)}}</h3> <h3 *ngIf="!categoryGeneration">0.00</h3>
+                <p>Actual </p>
+              </div>
+            </div>
+
+            <div class="col-md-2 ">
+              <div class="cap circle02">
+                  <h3 *ngIf="categoryGeneration">{{categoryGeneration?.programGeneration.toFixed(2)}}</h3> <h3 *ngIf="!categoryGeneration">0.00</h3>
+                <p>Deviation</p>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+
+    <!-- start footer:-->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <p>NPP is designed, developed and hosted by National Informatics Centre, Ministry of Electronics & Information Technology,
+              Government of India. </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- End footer:-->
+
+  </div>
+</body>

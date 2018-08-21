@@ -1,0 +1,8 @@
+
+    /**Line Draw X-Axis And Y-Axis **/
+    .axis path,
+    .axis line {
+      fill: none;
+      stroke: #333;
+      shape-rendering: crispEdges;
+    }
