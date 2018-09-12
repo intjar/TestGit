@@ -1,64 +1,83 @@
-import { Component, OnInit,Input } from '@angular/core';
-import { ActivatedRoute, Params, Data, Router, NavigationExtras } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
+import { Title } from '@angular/platform-browser';
 
 import { GenerationService } from './generation.service';
 import { AllGenerationModel,SectorGenerationModel,CategoryGenerationModel } from './generation.model';
-
-import * as model from '../../assets/chart3d/js/testjs';
+import { ChartTypeService } from '../common-file/charttype.service';
 
 @Component({
   selector: 'app-generation',
-  templateUrl: './generation.component.html',
+  templateUrl: './generation.component.html'
 })
-
-
 export class GenerationComponent implements OnInit {
-  constructor(updates: SwUpdate, private router: Router, private generationService: GenerationService) {
+
+  constructor(updates: SwUpdate, private titleService: Title, private generationService: GenerationService, private chartTypeService:ChartTypeService) {
     updates.available.subscribe(event => {
-      updates.activateUpdate().then(() => document.location.reload());
-    })
+    updates.activateUpdate().then(() => document.location.reload());
+  }) }
+
+  //public isOnline: boolean = navigator.onLine;
+
+  ngOnInit() {
+    this.titleService.setTitle('generation');
+    this.funAllGeneration();
   }
-  
-  title : 'generation';
+
+ 
   allGeneration: AllGenerationModel;
   sectorGeneration:SectorGenerationModel;
   categoryGeneration: CategoryGenerationModel
-  ngOnInit() {
-    this.funAllGeneration();
-    
-    //model.testjsfunction();
-    //model.donut3d.draw('Test.........');
+
+
+  clickOnTab(clcikType: string){
+    if(clcikType=='allGeneration')
+      this.funAllGeneration();
+    if(clcikType=='sectorGeneration')
+      this.funcSectorGeneration('0');
+    if(clcikType=='categoryGeneration')
+      this.funcCategoryGeneration('0');
   }
 
-  
   funAllGeneration() {
-    this.generationService.getGenerationData().subscribe(data => {
-      localStorage.setItem('installedGeneration', JSON.stringify(data));
+      this.generationService.getGenerationData().subscribe(data => {
       this.allGeneration = data;
-
-      //alert("installed_capacity=="+this.allCapacity.installed_capacity)
+       
+      let dataSetDataArr=[
+        +data.programGeneration,
+        +data.actualGeneration,
+        +data.deviationGeneration
+      ];
+      this.chartTypeService.funcCreateChart('horizontalBar','allChartId',dataSetDataArr);
     })
   }
 
-
-
   funcSectorGeneration(sectorId: string) {
     this.generationService.getSectorGenerationData(sectorId).subscribe(data => {
-      localStorage.setItem('sectorGeneration', JSON.stringify(data));
       this.sectorGeneration = data;
-      //alert(this.sectorGeneration.actualGeneration)
+      
+      let dataSetDataArr=[
+        +data.programGeneration,
+        +data.actualGeneration,
+        +data.deviationGeneration
+      ];
+      this.chartTypeService.funcCreateChart('horizontalBar','sectorChartId',dataSetDataArr);
     })
   }
 
   funcCategoryGeneration(categoryId: String){
     this.generationService.getCategoryGenerationData(categoryId).subscribe(data => {
-      localStorage.setItem('categoryGeneration'+categoryId, JSON.stringify(data));
       this.categoryGeneration = data;
-        //alert("installed_capacity=="+this.categoryCapacity.installed_capacity)
+
+      let dataSetDataArr=[
+        +data.programGeneration,
+        +data.actualGeneration,
+        +data.deviationGeneration
+      ];
+      this.chartTypeService.funcCreateChart('horizontalBar','categoryChartId',dataSetDataArr);
     })
   }
 
-  
+
 
 }

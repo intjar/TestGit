@@ -1,11 +1,11 @@
 {
-  "name": "portal-app",
-  "short_name": "portal-app",
+  "name": "dashboard",
+  "short_name": "dashboard",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
-  "scope": "/",
-  "start_url": "/",
+  "scope": "/dashboard/",
+  "start_url": "/dashboard/index.html",
   "icons": [
     {
       "src": "assets/icons/icon-72x72.png",

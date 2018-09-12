@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +6,5 @@ import { SwUpdate } from '@angular/service-worker';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'PortalApp';
+  title = 'dashboard';
 }

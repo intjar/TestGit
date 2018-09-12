@@ -1,51 +1,52 @@
-import { environment } from '../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
+import { Title } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import {HttpClientModule} from "@angular/common/http";
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { HttpModule } from '@angular/http';
-import { CommonModule } from '@angular/common';
+import { environment } from '../environments/environment';
+import { HttpClientModule } from "@angular/common/http";
+
+import { AppRoutingModule } from './app-routing.module';
+import { CommonChartService } from './common-file/createchartjs.service';
+import { ChartTypeService } from './common-file/charttype.service';
 
 
-import {DashboardComponent} from './dashboard/dashboard.component';
+import { HomeComponent } from './home/home.component';
 
-import {CapacityComponent} from './capacity/capacity.component';
-import {CapacityService} from './capacity/capacity.service';
+import { CapacityComponent } from './capacity/capacity.component';
+import { CapacityService } from './capacity/capacity.service';
 
-import {GenerationComponent} from './generation/generation.component';
-import {GenerationService} from './generation/generation.service';
+import { GenerationComponent } from './generation/generation.component';
+import { GenerationService } from './generation/generation.service';
 
+import { TestcodeComponent } from './testcode/testcode.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    HomeComponent,
     CapacityComponent,
     GenerationComponent,
+    TestcodeComponent
   ],
-  
   providers: [
-    CapacityComponent,
-    GenerationComponent,
+    CommonChartService,
+    ChartTypeService,
     CapacityService,
     GenerationService
-  ],
+    ],
 
-  bootstrap: [AppComponent],
 
   imports: [
+    AppRoutingModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    CommonModule,
-    HttpModule,
     HttpClientModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
+    BrowserModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-
+  
+  bootstrap: [AppComponent]
 })
-
 export class AppModule { }

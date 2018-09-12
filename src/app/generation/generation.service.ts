@@ -1,6 +1,8 @@
 import {Injectable} from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { throwError } from "rxjs";
+import { catchError } from 'rxjs/operators';
 
 import { AllGenerationModel,SectorGenerationModel,CategoryGenerationModel } from './generation.model';
 
@@ -8,12 +10,14 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
+
 export class GenerationService {
   constructor(private http:HttpClient) {}
 
-  private baseURL = environment.basePortalURI; 
-  private serviceUrl = this.baseURL+'/generation';
+  private serviceUrl = environment.basePortalURI+'/getGeneration';
 
   public getGenerationData() {
     console.log("inside capacity service getSectorGenerationData");
@@ -31,7 +35,5 @@ export class GenerationService {
     let categoryGenerationeUrl = this.serviceUrl+'?categoryId='+categoryId;
     return this.http.get<CategoryGenerationModel>(categoryGenerationeUrl);
   }
-
-  
 
 }

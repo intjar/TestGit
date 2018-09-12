@@ -1,37 +1,33 @@
-import {Injectable} from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { AllCapacityModel, SectorCapacityModel, CategoryCapacityModel } from './capacity.model';
 
-import { AllCapacityModel,SectorCapacityModel,CategoryCapacityModel } from './capacity.model';
+@Injectable({
+  providedIn: 'root'
+})
 
-const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-};
-
-@Injectable()
 export class CapacityService {
-  constructor(private http:HttpClient) {}
 
-  private baseURL = environment.basePortalURI; 
-  private capacityUrl = this.baseURL+'/capacity';
-  //private sectorCapacityUrl = this.baseURL+'/capacity';
-  
-  
+  constructor(private http: HttpClient) { }
+  private capacityUrl = environment.basePortalURI+'/getCapacity';
+
+
   public getCapacityData() {
     console.log("inside capacity service getCapacityData");
     return this.http.get<AllCapacityModel>(this.capacityUrl);
   }
 
-  getSectorCapacityData(sectorId:String) {
+  public getSectorCapacityData(sectorId:String) {
     console.log("inside capacity service getSectorCapacityData");
     let sectorCapacityUrl = this.capacityUrl+'?sectorId='+sectorId;
     return this.http.get<SectorCapacityModel>(sectorCapacityUrl);
   }
 
-  getCategoryCapacityData(categoryId:String) {
+  public getCategoryCapacityData(categoryId:String) {
     console.log("inside capacity service getCategoryCapacityData");
     let categoryCapacityUrl = this.capacityUrl+'?categoryId='+categoryId;
-    return this.http.get<CategoryCapacityModel>(categoryCapacityUrl);
+    return this.http.get<CategoryCapacityModel>(categoryCapacityUrl)
   }
 
 }
